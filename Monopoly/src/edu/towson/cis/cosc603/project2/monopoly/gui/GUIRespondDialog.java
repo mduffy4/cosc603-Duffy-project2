@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package edu.towson.cis.cosc603.project2.monopoly.gui;
 
 import java.awt.*;
@@ -10,14 +13,24 @@ import edu.towson.cis.cosc603.project2.monopoly.RespondDialog;
 import edu.towson.cis.cosc603.project2.monopoly.TradeDeal;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GUIRespondDialog.
+ */
 public class GUIRespondDialog extends JDialog implements RespondDialog {
-    /**
-	 * 
-	 */
+    
+    /** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
+	
+	/** The response. */
 	private boolean response;
+    
+    /** The txt message. */
     JTextArea txtMessage = new JTextArea();
     
+    /**
+     * Instantiates a new GUI respond dialog.
+     */
     public GUIRespondDialog() {
         JButton btnYes = new JButton("Yes");
         JButton btnNo = new JButton("No");
@@ -53,10 +66,18 @@ public class GUIRespondDialog extends JDialog implements RespondDialog {
         pack();
     }
 
+    /* (non-Javadoc)
+     * @see edu.towson.cis.cosc603.project2.monopoly.RespondDialog#getResponse()
+     */
     public boolean getResponse() {
         return response;
     }
     
+    /**
+     * Sets the deal.
+     *
+     * @param deal the new deal
+     */
     public void setDeal(TradeDeal deal) {
         txtMessage.setText(deal.makeMessage());
     }

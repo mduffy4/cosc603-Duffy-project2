@@ -1,5 +1,12 @@
+/*
+ * 
+ */
 package edu.towson.cis.cosc603.project2.monopoly;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Interface IOwnable.
+ */
 public interface IOwnable {
 
 	/**
@@ -12,7 +19,7 @@ public interface IOwnable {
 	/**
 	 * Sets the theOwner.
 	 *
-	 * @param theOwner the new theOwner
+	 * @param owner the new the owner
 	 */
 	void setTheOwner(Player owner);
 

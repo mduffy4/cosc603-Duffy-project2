@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package edu.towson.cis.cosc603.project2.monopoly;
 
 import java.util.ArrayList;
@@ -273,7 +276,7 @@ public class Player {
 	/**
 	 * Pay rent to.
 	 *
-	 * @param theOwner the theOwner
+	 * @param owner the owner
 	 * @param rentValue the rent value
 	 */
 	public void payRentTo(Player owner, int rentValue) {

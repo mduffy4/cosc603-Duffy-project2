@@ -1,10 +1,22 @@
+/*
+ * 
+ */
 package edu.towson.cis.cosc603.project2.monopoly;
 
 import junit.framework.TestCase;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class UtilityCellTest.
+ */
 public class UtilityCellTest extends TestCase {
+	
+	/** The game master. */
 	GameMaster gameMaster;
 	
+	/* (non-Javadoc)
+	 * @see junit.framework.TestCase#setUp()
+	 */
 	protected void setUp() {
 		gameMaster = GameMaster.instance();
 		gameMaster.setGameBoard(new GameBoardUtility());
@@ -13,6 +25,9 @@ public class UtilityCellTest extends TestCase {
 		gameMaster.setGUI(new MockGUI());
 	}
     
+    /**
+     * Test monopoly.
+     */
     public void testMonopoly() {
         int u1CellIndex = gameMaster.getGameBoard().queryCellIndex("Utility 1");
         gameMaster.movePlayer(0, u1CellIndex);
@@ -23,6 +38,9 @@ public class UtilityCellTest extends TestCase {
         assertFalse(gameMaster.getPlayer(0).canBuyHouse());
     }
 	
+	/**
+	 * Test player action.
+	 */
 	public void testPlayerAction() {
 		UtilityCell cell =
 			(UtilityCell) gameMaster.getGameBoard().queryCell("Utility 1");
@@ -41,6 +59,9 @@ public class UtilityCellTest extends TestCase {
 				gameMaster.getPlayer(0).getMoney());
 	}
 
+	/**
+	 * Test purchase utility.
+	 */
 	public void testPurchaseUtility() {
 		assertEquals(0, gameMaster.getPlayer(0).numberOfUtil());
 		int cellIndex = gameMaster.getGameBoard().queryCellIndex("Utility 1");
@@ -50,6 +71,9 @@ public class UtilityCellTest extends TestCase {
 		assertEquals(1, gameMaster.getPlayer(0).numberOfUtil());
 	}
 
+	/**
+	 * Test rent.
+	 */
 	public void testRent() {
 		UtilityCell u1 =
 			(UtilityCell) gameMaster.getGameBoard().queryCell("Utility 1");

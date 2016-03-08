@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package edu.towson.cis.cosc603.project2.monopoly.gui;
 
 import java.awt.Container;
@@ -13,15 +16,29 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TestDiceRollDialog.
+ */
 public class TestDiceRollDialog extends JDialog {
-    /**
-	 * 
-	 */
+    
+    /** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
+	
+	/** The btn cancel. */
 	private JButton btnOK, btnCancel;
+    
+    /** The txt dice roll. */
     private JTextField txtDiceRoll;
+    
+    /** The dice roll. */
     private int[] diceRoll;
     
+    /**
+     * Instantiates a new test dice roll dialog.
+     *
+     * @param parent the parent
+     */
     public TestDiceRollDialog(Frame parent) {
         super(parent);
         
@@ -78,6 +95,11 @@ public class TestDiceRollDialog extends JDialog {
         this.pack();
     }
 
+    /**
+     * Gets the dice roll.
+     *
+     * @return the dice roll
+     */
     public int[] getDiceRoll() {
         return diceRoll;
     }
