@@ -20,22 +20,15 @@ public class GUICell extends JPanel {
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 	
-	/** The cell. */
-	private Cell cell;
-	
-	/** The lbl info. */
-	private JLabel lblInfo;
-	
-	/** The lbl players. */
-	private JLabel[] lblPlayers = new JLabel[GameMaster.MAX_PLAYER];
-	
-    /**
+	private GUICellData data = new GUICellData(new JLabel[GameMaster.MAX_PLAYER]);
+
+	/**
      * Instantiates a new GUI cell.
      *
      * @param cell the cell
      */
     public GUICell(Cell cell) {
-        this.cell = cell;
+        this.data.cell = cell;
         setLayout(new OverlayLayout(this));
         setBorder(new BevelBorder(BevelBorder.LOWERED));
         JPanel pnlPlayer = new JPanel();
@@ -52,11 +45,11 @@ public class GUICell extends JPanel {
 	 * Adds the cell info.
 	 */
 	private void addCellInfo() {
-        lblInfo = new JLabel();
+        data.lblInfo = new JLabel();
 		displayInfo();
         JPanel pnlInfo = new JPanel();
         pnlInfo.setLayout(new GridLayout(1, 1));
-        pnlInfo.add(lblInfo);
+        pnlInfo.add(data.lblInfo);
         add(pnlInfo);
     }
 	
@@ -67,8 +60,8 @@ public class GUICell extends JPanel {
 	 */
 	public void addPlayer(int index) {
 		Player player = GameMaster.instance().getPlayer(index);
-		lblPlayers[index].setText(player.getName().substring(0, 1));
-		lblPlayers[index].setOpaque(true);
+		data.lblPlayers[index].setText(player.getName().substring(0, 1));
+		data.lblPlayers[index].setOpaque(true);
 	}
 
     /**
@@ -78,9 +71,9 @@ public class GUICell extends JPanel {
      */
     private void createPlayerLabels(JPanel pnlPlayer) {
 		for (int i = 0; i < GameMaster.MAX_PLAYER; i++) {
-			lblPlayers[i] = new JLabel();
-			lblPlayers[i].setBackground(Color.GREEN);
-			pnlPlayer.add(lblPlayers[i]);
+			data.lblPlayers[i] = new JLabel();
+			data.lblPlayers[i].setBackground(Color.GREEN);
+			pnlPlayer.add(data.lblPlayers[i]);
 		}
 	}
 
@@ -88,7 +81,7 @@ public class GUICell extends JPanel {
 	 * Display info.
 	 */
 	public void displayInfo() {
-		lblInfo.setText(InfoFormatter.cellInfo(cell));
+		data.lblInfo.setText(InfoFormatter.cellInfo(data.cell));
         this.invalidate();
 		this.repaint();
 	}
@@ -99,7 +92,7 @@ public class GUICell extends JPanel {
 	 * @return the cell
 	 */
 	public IOwnable getCell() {
-		return cell;
+		return data.cell;
 	}
 	
 	/**
@@ -108,8 +101,8 @@ public class GUICell extends JPanel {
 	 * @param index the index
 	 */
 	public void removePlayer(int index) {
-		lblPlayers[index].setText("");
-		lblPlayers[index].setOpaque(false);
+		data.lblPlayers[index].setText("");
+		data.lblPlayers[index].setOpaque(false);
         this.repaint();
 	}
 }
